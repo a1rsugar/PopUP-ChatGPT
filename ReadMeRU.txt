@@ -1,0 +1,1 @@
+https://telegra.ph/PopUP-ChatGPT-ustanovka-i-ispolzovanie-06-23
