@@ -9,4 +9,4 @@ ReadME_ENG: https://telegra.ph/PopUP-ChatGPT-ustanovka-i-ispolzovanie-RU-06-23
 
 Special thanks to Flasya and Egor brndmgd for testing this extension.
 
-Video demonstration: https://youtu.be/OH1LgxKksj8
+Video demonstration: https://youtu.be/OH1LgxKksj8](https://www.youtube.com/watch?v=yW80QTn83pw&ab_channel=airsugar
