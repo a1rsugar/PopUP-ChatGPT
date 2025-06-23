@@ -1,5 +1,5 @@
 # PopUP-ChatGPT
-Copies selected text and sends it to ChatGPT with automatic insertion.
+Copies selected text and sends it to ChatGPT with automatic insertion. VIBE CODED DON`T BULLY ME :(
 
 ReadMe_RU: https://telegra.ph/PopUP-ChatGPT-ustanovka-i-ispolzovanie-06-23
 
