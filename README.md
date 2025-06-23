@@ -1,5 +1,7 @@
 # PopUP-ChatGPT
-Copies selected text and sends it to ChatGPT with automatic insertion. VIBE CODED DON`T BULLY ME :(
+Copies selected text and sends it to ChatGPT with automatic insertion. 
+
+Vibe Coded may have some visual or technical bugs.
 
 ReadMe_RU: https://telegra.ph/PopUP-ChatGPT-ustanovka-i-ispolzovanie-06-23
 
