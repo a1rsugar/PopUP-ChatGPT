@@ -6,3 +6,5 @@ ReadMe_RU: https://telegra.ph/PopUP-ChatGPT-ustanovka-i-ispolzovanie-06-23
 ReadME_ENG: https://telegra.ph/PopUP-ChatGPT-ustanovka-i-ispolzovanie-RU-06-23
 
 Special thanks to Flasya and Egor brndmgd for testing this extension.
+
+Video demonstration: https://youtu.be/oKFnPkuH-jE
