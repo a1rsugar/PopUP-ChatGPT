@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PopUP ChatGPT/DeepSeek/Another Settings</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      width: 320px;
+      padding: 20px;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    textarea {
+      width: 100%;
+      height: 80px;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      resize: vertical;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+      margin-bottom: 10px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    textarea::-webkit-scrollbar {
+      display: none;
+    }
+
+    textarea:focus {
+      border-color: #10a37f;
+      outline: none;
+    }
+
+    button {
+      font-family: Arial, sans-serif !important;
+      user-select: none !important;
+      margin-top: 15px;
+      padding: 10px 16px;
+      background-color: #10a37f;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #0e8c6e;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .checkbox-group {
+      margin-top: 12px;
+    }
+
+    .checkbox-group label {
+      font-weight: normal;
+      display: flex;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .checkbox-group input[type="checkbox"],
+    .checkbox-group input[type="radio"] {
+      margin-right: 8px;
+      transform: scale(1.2);
+      accent-color: #10a37f;
+    }
+
+    #status {
+      margin-top: 10px;
+      color: green;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .prompt-popup {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background: #fff;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+
+    .prompt-body {
+      padding: 10px 14px;
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .prompt-popup.open .prompt-body {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .service-selector {
+      margin: 10px 0;
+      padding: 10px;
+      background: #f0f0f0;
+      border-radius: 8px;
+    }
+
+    .service-selector label {
+      font-weight: bold;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .custom-url-container {
+      display: none;
+      margin-top: 10px;
+      padding: 10px;
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+
+    .custom-url-container input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-top: 5px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 10px 0;
+    }
+
+    #togglePromptsBtn {
+      margin-bottom: 10px;
+    }
+
+    #resetBtn {
+      background-color: #f44336;
+    }
+
+    #resetBtn:hover {
+      background-color: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="togglePromptsBtn">⚙️ Prompt Settings</button>
+
+  <div class="prompt-popup" id="promptPopup">
+    <div class="prompt-body" id="promptsContainer">
+      <label for="prompt">Explain word and sentence (default)</label>
+      <textarea id="prompt"></textarea>
+
+      <label for="promptRemoveWord">Explain sentence</label>
+      <textarea id="promptRemoveWord"></textarea>
+
+      <label for="promptRemoveSentence">Explain word</label>
+      <textarea id="promptRemoveSentence"></textarea>
+
+      <label for="promptExplainText">Explain selected text</label>
+      <textarea id="promptExplainText"></textarea>
+
+      <label for="promptExplainSentence">Custom prompt</label>
+      <textarea id="promptExplainSentence"></textarea>
+      <button id="resetBtn">Reset prompts</button>
+    </div>
+  </div>
+
+  <div class="checkbox-group">
+    <hr>
+    <label><input type="checkbox" id="removeWord">Explain sentence</label>
+    <label><input type="checkbox" id="removeSentence">Explain word</label>
+    <label><input type="checkbox" id="explainText">Explain selected text</label>
+    <label><input type="checkbox" id="explainSentence">Custom prompt</label>
+    <label><input type="checkbox" id="showFloatingBtn">Show floating window when selecting text</label>
+  </div>
+
+  <div class="service-selector">
+    <label>Select service</label>
+    <label><input type="radio" name="selectedService" value="chatgpt" checked> ChatGPT</label>
+    <label><input type="radio" name="selectedService" value="deepseek"> DeepSeek</label>
+    <label><input type="radio" name="selectedService" value="another"> Another</label>
+    
+    <div id="chatgptUrlContainer" class="custom-url-container">
+      <label for="chatgptUrlInput">ChatGPT URL:</label>
+      <input type="text" id="chatgptUrlInput" placeholder="https://chat.openai.com/">
+    </div>
+    
+    <div id="deepseekUrlContainer" class="custom-url-container">
+      <label for="deepseekUrlInput">DeepSeek URL:</label>
+      <input type="text" id="deepseekUrlInput" placeholder="https://chat.deepseek.com/chat">
+    </div>
+
+    <div id="anotherUrlContainer" class="custom-url-container">
+      <label for="anotherUrlInput">Another URL:</label>
+      <input type="text" id="anotherUrlInput" placeholder="https://your-service.com">
+    </div>
+  </div>
+
+  <button id="saveBtn">Save</button>
+  <div id="status"></div>
+
+  <div style="font-size: 12px; font-weight: bold; text-align: center; margin-bottom: 20px; color: #666; width: 100%;">
+    PopUP ChatGPT by AirSugar
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

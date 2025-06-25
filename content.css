@@ -1,0 +1,11 @@
+button {
+  font-family: Arial, sans-serif !important;
+  user-select: none !important;
+}
+#header {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #10a37f;
+}
